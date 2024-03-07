@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        .form {
+            background-color: antiquewhite;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 400px;
+            margin: left 20px;
+            color: rgb(24, 26, 27); 
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+       
+        button {
+            width: 90%;
+            padding: 10px;
+            margin: 10px ;
+            background-color: #e20e0e;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            box-sizing: border-box;
+            border: none;
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 5px;
+            border: 1px solid black;
+            border-radius: 10px;
+            border:none
+        }
+        button:hover {
+            background-color: #8416df;
+        }
+        body{
+            background-image:url("form.avif") ;
+        }
+    </style>
+</head>
+<body><center>
+    <div class="form">
+        <h1><b>LOGIN FORM</b></h1>
+        <div id="form1">
+            <input type="email" placeholder="Enter your Email" id="m1"><br><br>
+            <input type="password" placeholder="Enter Password" id="p1"><br><br><br>
+            <button type="button" onclick="createAccount()">Create An Account</button><br><br><br>
+            <p> Already have an account? ; <button onclick="showLoginForm()">LOGIN</button></p>
+        </div>
+        <div id="form2" style="display:none;">
+            <input type="email" placeholder="Enter your Email" id="m2"><br><br>
+            <input type="password" placeholder="Enter password" id="p2"><br><br><br>
+            <button type="button" onclick="login()">LOGIN</button>
+        </div>
+    </div>
+    </center>
+    <script>
+        let email = "";
+        let password = "";
+        function createAccount() {
+            email = document.getElementById("m1").value;
+            password = document.getElementById("p1").value;
+            alert("Account created successfully");
+        }
+        function showLoginForm() {
+            document.getElementById("form1").style.display = "none";
+            document.getElementById("form2").style.display = "block";
+        }
+        function login() {
+            const loginEmail = document.getElementById("m2").value;
+            const loginPassword = document.getElementById("p2").value;
+
+            if (loginEmail === email && loginPassword === password) {
+                alert("Login successful");
+            } else {
+                alert("Invalid credentials");
+            }
+        }
+    </script>  
+</body>
+</html>
